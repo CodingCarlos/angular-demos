@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>My AngularJS App</title>
+</head>
+<body>
+
+
+	<div ng-controller="MyCtrl as crtl">
+		
+		Hola, {{crtl.service.name}}. <br>
+	
+		<input type="text" ng-model="crtl.service.name">
+		
+		<button ng-click="crtl.hola()">Saludar</button>
+		
+	</div>
+	
+	<hr>
+	
+	<div ng-controller="MyCarrito as carr">
+		
+		CArrito de {{carr.service.name}}. <br>
+		
+		<input type="text" ng-model="carr.service.name">
+		
+	</div>
+
+
+	
+	<!-- AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+	
+	<!-- App -->
+	<script type="text/javascript" src="./js/app.js"></script>
+
+    <!-- Services -->
+    <script type="text/javascript" src="./services/session.js"></script>
+    
+    <!-- Controllers -->
+    <script type="text/javascript" src="./controllers/my-controller.js"></script>
+    <script type="text/javascript" src="./controllers/carrito.js"></script>
+
+
+</body>
+</html>

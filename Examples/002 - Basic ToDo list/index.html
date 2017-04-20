@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>My AngularJS App</title>
+</head>
+<body>
+
+	<h1>Task list</h1>
+
+	<div ng-controller="TodoController as Todo">
+		
+		<div ng-show="Todo.updating != ''">
+			<input type="text" ng-model="Todo.updating"><button ng-click="Todo.update()">Update</button>
+		</div>
+
+		<ul>
+			<li ng-show="Todo.service.list.lenght == 0">No hay tareas</li>
+			<li ng-repeat="task in Todo.service.list">
+				<input type="checkbox" ng-model="task.done"> {{task.text}} <button ng-click="Todo.openUpdate(task.text)">Update</button><button ng-click="Todo.remove(task.text)">Remove</button>
+			</li>
+		</ul>
+
+		<hr>
+		
+		<div>
+			<input type="text" ng-model="Todo.newTodo"><button ng-click="Todo.add()">Add</button>
+		</div>
+		
+	</div>
+	
+
+	
+	<!-- AngularJS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+	
+	<!-- App -->
+	<script type="text/javascript" src="./js/app.js"></script>
+
+    <!-- Services -->
+    <script type="text/javascript" src="./services/todo.js"></script>
+    
+    <!-- Controllers -->
+    <script type="text/javascript" src="./controllers/todo.js"></script>
+    <script type="text/javascript" src="./controllers/carrito.js"></script>
+
+
+</body>
+</html>
