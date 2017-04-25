@@ -12,8 +12,11 @@ angular.module('app').config(function($routeProvider) {
 		.when("/green", {
 			templateUrl: "views/green.html"
 		})
-		.otherwise({
+		.when("/color/:name", {
 			templateUrl: "views/none.html",
 			controller: 'DemoController'
+		})
+		.otherwise({
+			templateUrl: "views/none.html"
 		});
 });
