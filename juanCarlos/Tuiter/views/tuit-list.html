@@ -1,0 +1,17 @@
+
+
+	<h1>Tuit list</h1>
+
+	<div ng-controller="TuitList as TuitListController">
+		
+		<ul>
+			<li ng-show="TuitListController.service.list.lenght == 0">No hay tuits</li>
+			<li ng-repeat="tuitListado in TuitListController.service.list">
+				User: {{tuitListado.user}}
+                Text: {{tuitListado.text}}
+			</li>
+		</ul>
+
+		<hr>
+		
+	</div>

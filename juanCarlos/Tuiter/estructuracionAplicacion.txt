@@ -1,0 +1,45 @@
+
+- Listado de tuits          (#/)
+- Listado de usuarios       (#/user)
+- Perfil de usuario         (#/user/:name)
+
+- Ver tuits
+- Ver usuarios
+- Añadir tuit
+
+-----------------------------
+
+Tuit {
+    user: 'CodingCarlos'
+    text: 'Hola, buenos días'
+}
+
+User {
+    name: 'CodingCarlos'
+    bio: 'Soy yo, el loco de la barba'
+}
+
+------------------------------
+
+/ views
+    - tuit-list.html
+    - user-list.html
+    - user.html
+    - add-tuit.html
+    
+/ controllers
+    - tuit-list.js
+    - user-list.js
+    - user.js
+    ( - add-tuit.js)
+    
+/ services
+    - tuit.js
+        * list: [tuit]
+        * add: function(tuit);
+        
+    - user.js
+        * list: [user]
+        
+/ directive
+    - add-tuit.js

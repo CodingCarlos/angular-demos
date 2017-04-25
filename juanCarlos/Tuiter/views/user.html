@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>My AngularJS App</title>
+</head>
+<body>
+
+	<h1>User Detail</h1>
+
+	<div ng-controller="User as UserController">
+		
+		<ul>
+			{{UserController.user.name}}
+		</ul>
+
+		<hr>
+		
+	</div>
+	
+</body>
+</html>
