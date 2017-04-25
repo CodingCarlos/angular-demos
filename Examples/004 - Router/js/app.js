@@ -4,12 +4,16 @@ angular.module('app').config(function($routeProvider) {
 
 	$routeProvider
 		.when("/", {
-			templateUrl : "views/main.html"
+			templateUrl: "views/main.html"
 		})
 		.when("/red", {
-			templateUrl : "views/red.html"
+			templateUrl: "views/red.html"
 		})
 		.when("/green", {
-			templateUrl : "views/green.html"
+			templateUrl: "views/green.html"
+		})
+		.otherwise({
+			templateUrl: "views/none.html",
+			controller: 'DemoController'
 		});
 });
