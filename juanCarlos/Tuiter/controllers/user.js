@@ -10,8 +10,8 @@ function User($scope, $routeParams, userService) {
     var self = this;
     
     //Obtenemos el parámetro del nombre de entrada
-    self.name = $routeParams.name;
-    console.log('El nombre es: ' + self.name);
+    self.id = $routeParams.id;
+    console.log('El id es: ' + self.id);
     
     
     //Obtenemos el servicio
@@ -25,11 +25,13 @@ function User($scope, $routeParams, userService) {
 	};
 	
     //Buscar el nombre de entrada entre los datos del Servicio
-    
-    
-    // Mock
-    user.name = self.name;
-    user.bio = 'Bio - Prueba';
+    for (var i=0; i < self.service.list.length; i++) {
+        if (self.service.list[i].id == self.id) {
+            user.name = self.service.list[i].name;
+            user.bio = self.service.list[i].bio;
+            user.pic = self.service.list[i].pic;
+        }
+    }
     
 	self.user = user;
 

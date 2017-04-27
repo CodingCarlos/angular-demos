@@ -13,7 +13,7 @@ angular.module('app').config(function($routeProvider) {
             controller: 'UserList',
             controllerAs: 'UserList'
 		})
-		.when("/user/:name", {
+		.when("/user/:id", {
 			templateUrl: "views/user.html",
 			controller: 'User',
             controllerAs: 'User'
