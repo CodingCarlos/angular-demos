@@ -23,8 +23,6 @@ function tuitservice() {
 		
 	};
 	
-	
-
 	function add(tuit){
 		tuits.list.push({text:tuit,user:"pep"})
 	}

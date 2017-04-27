@@ -8,10 +8,14 @@ angular.module('app').config(function($routeProvider) {
             controllerAs: "tuitList"
         })
         .when("/users", {
-            templateUrl: "views/users-list.html"
+            templateUrl: "views/users-list.html",
+            controller: "users",
+            controllerAs: "users"
         })
-        .when("/user", {
-            templateUrl: "views/user.html"
+        .when("/user/:name", {
+            templateUrl: "views/user.html",
+            controller: "user",
+            controllerAs: "user"
         })
         .when("/addTuit", {
             templateUrl: "views/add-tuit.html",

@@ -5,16 +5,16 @@ function users() {
 	var users = {
 		list: [
 			{
-				name: 'a',
-				bio: 'dvdsv'
+				name: 'carlos',
+				bio: 'bio 01'
 			},
 			{
-				name: 'b',
-				bio: 'dvdsv'
+				name: 'pedro',
+				bio: 'bio 02'
 			},
 			{
-				name: 'c',
-				bio: 'dvdsv'
+				name: 'carol',
+				bio: 'bio 03'
 			},
 		],
 
@@ -22,11 +22,13 @@ function users() {
 		find: find
 		
 	};
-	
-	
 
-	function find(user){
-		tuits.list.push({text:tuit,user:"pep"})
+	function find(name) {
+		for(var i=0; i< list.length ; i++){
+			if (list[i].name === name){
+				return list[i];
+			}
+		}
 	}
 	return users;
 
