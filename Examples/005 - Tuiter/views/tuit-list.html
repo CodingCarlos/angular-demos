@@ -1,0 +1,19 @@
+<h1>Timeline</h1>
+
+<!-- <div ng-controller="TuitListContoller as tl"> -->
+
+	<div>
+		<!-- No tuits -->
+		<div ng-show="tl.service.list.lenght == 0">There are no tuits</div>
+		
+		<!-- Tuit list -->
+		<div ng-repeat="tuit in tl.service.list">
+			@{{tuit.user}}: {{tuit.text}}
+		</div>
+	</div>
+
+	<hr>
+	
+	<add-tuit/>
+
+<!-- </div> -->

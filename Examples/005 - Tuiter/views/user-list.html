@@ -1,0 +1,17 @@
+<h1>User list</h1>
+
+<!-- <div ng-controller="UserListController as ul"> -->
+
+    <ul>
+        <!-- No users -->
+        <li ng-show="ul.service.list.lenght == 0">There aren't any user to show</li>
+
+        <!-- User list -->
+        <li ng-repeat="user in ul.service.list">
+            <a href="#/user/{{user.name}}">{{user.name}}</a>
+        </li>
+    </ul>
+
+    <hr>
+
+<!-- </div> -->
