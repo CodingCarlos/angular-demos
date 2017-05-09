@@ -6,15 +6,18 @@ function users() {
 		list: [
 			{
 				name: 'carlos',
-				bio: 'bio 01'
+				bio: 'Suspendisse augue sem, aliquam vel blandit nec, gravida vel enim. Mauris ac tellus vel tortor tempus bibendum.',
+				pic: 'http://copicola.com/images/profile-pics/profile-pics-24.jpg'
 			},
 			{
 				name: 'pedro',
-				bio: 'bio 02'
+				bio: 'bio 02',
+				pic:'http://www.hbc333.com/data/out/190/46874128-profile-pictures.png'
 			},
 			{
 				name: 'carol',
-				bio: 'bio 03'
+				bio: 'Suspendisse augue sem, aliquam vel blandit nec, gravida vel enim. Mauris ac tellus vel tortor tempus bibendum.',
+				pic:'https://assets.entrepreneur.com/content/16x9/822/20150406145944-dos-donts-taking-perfect-linkedin-profile-picture-selfie-mobile-camera-2.jpeg'
 			},
 		],
 
@@ -24,9 +27,9 @@ function users() {
 	};
 
 	function find(name) {
-		for(var i=0; i< list.length ; i++){
-			if (list[i].name === name){
-				return list[i];
+		for(var i=0; i< users.list.length ; i++){
+			if (users.list[i].name === name){
+				return users.list[i];
 			}
 		}
 	}

@@ -39,10 +39,7 @@ angular.module('app', ['ui.router'])
                     "topbar": {
                         templateUrl: "views/topbar.html"
                     },
-                    "content": {
-                        templateUrl: "views/tuit-list.html"
-                            //controlador
-                    },
+
                     "footer": {
                         templateUrl: "views/footer.html"
                     }
@@ -51,10 +48,21 @@ angular.module('app', ['ui.router'])
                 viewCache: true,
                 abstract: true
             })
-            .state('home.users', {
+              .state('home.tuits', {
                 url: "/",
                 views: {
-                    "content": {
+                    "content@": {
+                        templateUrl: "views/tuit-list.html",
+                        controller: "tuitList",
+                        controllerAs: "tuitList"
+                    }
+                }
+
+            })
+            .state('home.users', {
+                url: "/users",
+                views: {
+                    "content@": {
                         templateUrl: "views/users-list.html",
                         controller: "users",
                         controllerAs: "users"
@@ -62,10 +70,22 @@ angular.module('app', ['ui.router'])
                 }
 
             })
+               .state('home.user', {
+                url: "/user/:name",
+                views: {
+                    "content@": {
+                        templateUrl: "views/user.html",
+                        controller: "user",
+                        controllerAs: "user"
+                    }
+                }
+
+            })
+           
             .state('home.addTuit', {
                 url: "/addTuit",
                 views: {
-                    "content": {
+                    "content@": {
                         templateUrl: "views/add-tuit.html",
                         controller: "addTuit",
                         controllerAs: "addTuit"
