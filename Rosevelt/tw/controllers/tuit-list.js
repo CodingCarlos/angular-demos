@@ -4,5 +4,6 @@ function tuitList(tuit) {
 	
 	var self = this;
 	self.service = tuit;
+	self.service.get();
 
 }

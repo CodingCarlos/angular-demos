@@ -4,5 +4,7 @@ function users(users) {
 	
 	var self = this;
 	self.service = users;
+	self.service.get();
+
 
 }
