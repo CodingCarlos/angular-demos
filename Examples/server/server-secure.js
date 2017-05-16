@@ -1,7 +1,9 @@
 var Restify = require('restify');
 
-// var Jwt = require('restify-jwt');
-// var TOKEN_SECRET = 'secret';
+var jwt = require('jwt-simple'); 
+
+var Jwt = require('restify-jwt');
+var TOKEN_SECRET = 'secret';
 
 
 // var Network = require('./network/network.js');
@@ -37,12 +39,14 @@ server.use(Restify.bodyParser({
 
 // Basic routing
 
-server.get("/timeline", timeline);	
-server.get("/users", users);
-server.get("/user", users);
-server.post("/user", addUser);
-server.get("/user/:name", user);
-server.post("/tuit", addTuit);
+server.post("/login", login);
+
+server.get("/timeline", Jwt({secret: TOKEN_SECRET}), timeline);	
+server.get("/users", Jwt({secret: TOKEN_SECRET}), users);
+server.get("/user", Jwt({secret: TOKEN_SECRET}), users);
+server.post("/user", Jwt({secret: TOKEN_SECRET}), addUser);
+server.get("/user/:name", Jwt({secret: TOKEN_SECRET}), user);
+server.post("/tuit", Jwt({secret: TOKEN_SECRET}), addTuit);
 
 
 server.listen(3000, function (err) {
@@ -101,6 +105,23 @@ var tuits = [
 ];
 
 var lastId = 1234;
+
+// uid: 123
+// pass: dummy
+function login(req, res, next) {
+
+	if(req.body.pass == 'dummy') {
+
+		var tkn = jwt.encode({sub: req.body.uid}, TOKEN_SECRET);
+		
+		console.log(req.body.uid + ':' + tkn);
+		
+		res.send({token: tkn});
+	} else {
+		res.send(403, '{status: "error", error: "Bad authentication"}');
+	}
+
+}
 
 
 function users(req, res, next) {
