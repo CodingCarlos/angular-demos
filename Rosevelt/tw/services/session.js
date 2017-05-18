@@ -9,11 +9,12 @@ function sessionService(api) {
         login: login
     };
 
-    function login(user, pass) {
+    function login(user, pass , callback) {
 
         api.post(api.URL + '/login', { uid: user, pass: pass }, function(data) {
             alert("xx");
-            api.setToken(data.token);
+            api.setAuthorizationToken(data.token);
+            callback(true);
 
         });
 

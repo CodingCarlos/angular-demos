@@ -64,6 +64,8 @@
 
 		function setAuthorizationToken(token) {
 			api.token = token;
+			alert("entre")
+			console.log(token)
 		}
 
 	}
