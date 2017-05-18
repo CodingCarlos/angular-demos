@@ -1,6 +1,6 @@
 angular.module("app").service("tuit", tuitservice);
 
-function tuitservice($http) {
+function tuitservice(api) {
 
     var tuits = {
         list: [],
@@ -11,27 +11,22 @@ function tuitservice($http) {
 
     };
 
-    function get() {
-
-        $http.get('http://192.168.1.20:3000/timeline')
-            .then(function(data) {
-                tuits.list = data.data;
-            })
+     function get() {
+        api.get(api.URL + '/timeline', function(data) {
+                tuits.list = data;
+        });
 
     }
-
-    /*            $http.get('api.whatever.com/thing')
-        .then(function(data, status, headers, config) {
-            // Success !!
-        }, function(data, status, headers, config) {
-            // Error !!
-        );
-    */
-
 
     function add(tuit) {
-        tuits.list.push({ text: tuit, user: "pep" })
+        api.post(api.URL + '/tuit', { text: tuit, user: "pep" }, get)
+
+        //.tuits.list.push({ text: tuit, user: "pep" })
     }
+
+   
+    
+
     return tuits;
 
 }

@@ -1,6 +1,6 @@
 angular.module("app").service("users", users);
 
-function users($http) {
+function users(api) {
 
     var users = {
         list: [],
@@ -12,11 +12,8 @@ function users($http) {
     };
 
     function get() {
-        $http.get('http://192.168.1.20:3000/users')
-            .then(function(data) {
-                users.list = data.data;
-            }, function(data, status, headers, config) {
-
+        api.get(api.URL + '/users', function(data) {
+                users.list = data;
             });
 
     }

@@ -48,8 +48,19 @@ angular.module('app', ['ui.router'])
                 viewCache: true,
                 abstract: true
             })
-              .state('home.tuits', {
+            .state('home.login', {
                 url: "/",
+                views: {
+                    "content@": {
+                        templateUrl: "views/login.html",
+                        controller: "login",
+                        controllerAs: "login"
+                    }
+                }
+
+            })
+              .state('home.tuits', {
+                url: "/tuit-list",
                 views: {
                     "content@": {
                         templateUrl: "views/tuit-list.html",
@@ -93,6 +104,7 @@ angular.module('app', ['ui.router'])
                 }
 
             })
+    
 
     });
 
